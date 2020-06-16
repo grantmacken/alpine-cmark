@@ -22,6 +22,7 @@ build:
  docker pull alpine:$(FROM_ALPINE_TAG) ; fi
 	@docker buildx build --output "type=image,push=false" \
   --tag docker.pkg.github.com/$(REPO_OWNER)/$(REPO_NAME)/$(PKG_NAME):$(CMARK_VER) \
+  --tag $(DOCKER_IMAGE):$(CMARK_VER) \
   --build-arg CMARK_VER='$(CMARK_VER)' \
 .
 
